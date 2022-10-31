@@ -5,9 +5,10 @@ import numpy as np
 
 class KneeFinder:
     """
-    Experimental knee finder.
+    Knee point finder.
 
-    This tool search for the point which has the maximum distance to a line passing for the fist and last point of the given data set.
+    This tool search for the point which has the maximum distance to a line
+    passing for the fist and last point of the given data set.
     """
     knee = None
 
@@ -40,7 +41,7 @@ class KneeFinder:
         self.p2mp1 = np.expand_dims(p2mp1, axis=1)
 
     def clean_data(self):
-        # remove firsts and lasts equal valuesm if presents
+        # remove firsts and lasts equal values, if presents
         i_first = 0
         data_len = len(self.data[1])
         i_last = self.data[1][-1]
@@ -63,7 +64,7 @@ class KneeFinder:
         self.knee = self.data[:, knee_position]
         return self.knee
 
-    def plot(self, title: str = "Knee for this data", xlabel: str = "", ylabel: str = "") -> None:
+    def plot(self, title: str = "Knee for this data") -> None:
         if self.knee is None:
             _ = self.find_knee()
         plt.plot(self.data[0], self.data[1], label="data")
