@@ -48,3 +48,5 @@ knee_x, knee_y = kf.find_knee()
 kf.plot()
 
 ```
+
+![clustering_data](/imgs/knee.png?raw=true "Knee searching method")
