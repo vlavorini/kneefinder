@@ -55,10 +55,12 @@ so easier to use in an automated process.
 Since this tool does not rely on any assumption on the curve shape, 
 it results as more robust with respect to other, more complicated, tools. 
 
-As example, if you consider [Kneed](https://github.com/arvkevi/kneed) with the following data:
+As example, if you consider [Kneed](https://github.com/arvkevi/kneed) with the following data, 
+and simulating a common mis-configuration in the parameters:
 
 ```python
-from kneed import DataGenerator, KneeLocator
+# Finding the knee with the Kneed tool (not with our one)
+from kneed import KneeLocator
 
 x = [0.1       , 0.23571429, 0.37142857, 0.50714286, 0.64285714,
        0.77857143, 0.91428571, 1.05      , 1.18571429, 1.32142857,
@@ -67,16 +69,35 @@ y = [ 1.17585897,  1.35051375,  1.836304  ,  2.20409812,  2.37060316,
         2.46157837,  3.28991099,  2.9927505 ,  3.44015722,  6.33212422,
         6.92051422,  5.28718862,  6.69129098,  6.67477275, 10.00921042]
 
-kneedle = KneeLocator(x, y, curve="convex", direction="decreasing")
+kneedle = KneeLocator(x, y, curve="concave", direction="increasing")
 kneedle.plot_knee()
 
 ```
+Note that the curve is convex-like, while we configured Kneed as if the curve was concave-like. 
+With this configuration, the package state the knee/elbow point to be the very first point, 
+which is obviously wrong.
 
 ![kneed_wrong](/imgs/wrong_knee.png?raw=true "Kneed mistake")
 
 While using our tool you get:
 
 ![kneed_right](/imgs/good_knee.png?raw=true "Kneed correct")
+
+Moreover, our tool is also a bit faster:
+
+```python
+%%timeit
+kf = KneeFinder(data_x=x, data_y=y)
+kf.find_knee()
+# 24 µs ± 268 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
+```
+
+```python
+%%timeit
+kneedle = KneeLocator(x, y, curve="concave", direction="increasing")
+kneedle.find_knee()
+# 91.8 µs ± 1.32 µs per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
+```
 
 
 
