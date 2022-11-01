@@ -53,7 +53,7 @@ class KneeFinder:
             if self.data[1][data_len - i - 1] == last_value:
                 i_last = i
 
-        self.data = self.data[:, i_first:data_len - i_last - 1]
+        self.data = self.data[:, i_first:data_len - i_last]
 
     def find_knee(self) -> np.array:
         if self.knee is not None:
