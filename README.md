@@ -48,8 +48,8 @@ knee point.
 
 ![clustering_data](/imgs/sagitta.png?raw=true "Knee searching method")
 
-Note that this methodology is simpler with respect to other methods (no parameters required), 
-so easier to use in an automated process.
+This methodology is simpler with respect to other methods: no parameters are required, 
+so it's easier to use in automated processes.
 
 ### Robustness
 Since this tool does not rely on any assumption on the curve shape, 
