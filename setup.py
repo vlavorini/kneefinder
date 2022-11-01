@@ -8,11 +8,11 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name='kneefinder',
-    version='0.0.1',
+    version='0.0.2',
     description='A simple tool to find the `knee` point of a 2-d curve.',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='',
+    url='https://github.com/vlavorini/kneefinder',
     author='Vincenzo Lavorini',
     author_email='vincenzo.lavorini@protonmail.ch',
     license='BSD 2-clause',
