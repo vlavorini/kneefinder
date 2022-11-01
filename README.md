@@ -15,26 +15,12 @@ pip install kneefinder
 The knee point is defined as the “relative costs to increase [or decrease, NdC] some tunable parameter is no longer worth 
 the corresponding performance benefit” (Satopää, Albrecht, Irwin, and Raghavan, 2011, p.1)
 
-## Methodology
-KneeFinder define as knee the point which has the maximum distance 
-from a line passing between the first and last point.
-
-As example, take the following image: in blue you can see the data, 
-in orange the segment which connect the first to the last data point, and
-in red the distances between the data points. The big continuous red line points to our
-knee point.
-
-![clustering_data](/imgs/sagitta.png?raw=true "Knee searching method")
-
-Note that this methodology is simpler with respect to other methods (no parameters required), 
-so easier to use in an automated process.
 
 ## Example
 
 ```python
 
 import numpy as np
-import matplotlib.pyplot as plt
 from KneeFinder import KneeFinder
 
 data_x = np.linspace(1, 10, 15)
@@ -50,3 +36,47 @@ kf.plot()
 ```
 
 ![clustering_data](/imgs/knee.png?raw=true "Knee searching method")
+
+## Methodology
+KneeFinder define as knee the point which has the maximum distance 
+from a line passing between the first and last point.
+
+As example, take the following image: in blue you can see the data, 
+in orange the segment which connect the first to the last data point, and
+in red the distances between the data points. The big continuous red line points to our
+knee point.
+
+![clustering_data](/imgs/sagitta.png?raw=true "Knee searching method")
+
+Note that this methodology is simpler with respect to other methods (no parameters required), 
+so easier to use in an automated process.
+
+### Robustness
+Since this tool does not rely on any assumption on the curve shape, 
+it results as more robust with respect to other, more complicated, tools. 
+
+As example, if you consider [Kneed](https://github.com/arvkevi/kneed) with the following data:
+
+```python
+from kneed import DataGenerator, KneeLocator
+
+x = [0.1       , 0.23571429, 0.37142857, 0.50714286, 0.64285714,
+       0.77857143, 0.91428571, 1.05      , 1.18571429, 1.32142857,
+       1.45714286, 1.59285714, 1.72857143, 1.86428571, 2.        ]
+y = [ 1.17585897,  1.35051375,  1.836304  ,  2.20409812,  2.37060316,
+        2.46157837,  3.28991099,  2.9927505 ,  3.44015722,  6.33212422,
+        6.92051422,  5.28718862,  6.69129098,  6.67477275, 10.00921042]
+
+kneedle = KneeLocator(x, y, curve="convex", direction="decreasing")
+kneedle.plot_knee()
+
+```
+
+![kneed_wrong](/imgs/wrong_knee.png?raw=true "Kneed mistake")
+
+While using our tool you get:
+
+![kneed_right](/imgs/good_knee.png?raw=true "Kneed correct")
+
+
+
