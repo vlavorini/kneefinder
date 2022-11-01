@@ -35,7 +35,7 @@ kf.plot()
 
 ```
 
-![clustering_data](/imgs/knee.png?raw=true "Knee searching method")
+![clustering_data](https://raw.githubusercontent.com/vlavorini/kneefinder/main/imgs/knee.png?raw=true "Knee searching method")
 
 ## Methodology
 KneeFinder define as knee the point which has the maximum distance 
@@ -46,7 +46,7 @@ in orange the segment which connect the first to the last data point, and
 in red the distances between the data points. The big continuous red line points to our
 knee point.
 
-![clustering_data](/imgs/sagitta.png?raw=true "Knee searching method")
+![clustering_data](https://raw.githubusercontent.com/vlavorini/kneefinder/main/imgs/sagitta.png?raw=true "Knee searching method")
 
 This methodology is simpler with respect to other methods: no parameters are required, 
 so it's easier to use in automated processes.
@@ -77,11 +77,11 @@ Note that the curve is convex-like, while we configured Kneed as if the curve wa
 With this configuration, the package state the knee/elbow point to be the very first point, 
 which is obviously wrong.
 
-![kneed_wrong](/imgs/wrong_knee.png?raw=true "Kneed mistake")
+![kneed_wrong](https://raw.githubusercontent.com/vlavorini/kneefinder/main/imgs/wrong_knee.png?raw=true "Kneed mistake")
 
 While using our tool you get:
 
-![kneed_right](/imgs/good_knee.png?raw=true "Kneed correct")
+![kneed_right](https://raw.githubusercontent.com/vlavorini/kneefinder/main/imgs/good_knee.png?raw=true "Kneed correct")
 
 Moreover, our tool is also a bit faster:
 

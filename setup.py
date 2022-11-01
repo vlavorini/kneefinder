@@ -1,9 +1,17 @@
 from setuptools import setup
 
+
+# read the contents of your README file
+from pathlib import Path
+this_directory = Path(__file__).parent
+long_description = (this_directory / "README.md").read_text()
+
 setup(
     name='kneefinder',
     version='0.0.1',
     description='A simple tool to find the `knee` point of a 2-d curve.',
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     url='',
     author='Vincenzo Lavorini',
     author_email='vincenzo.lavorini@protonmail.ch',
@@ -11,6 +19,7 @@ setup(
     packages=['kneefinder'],
     install_requires=[
                       'numpy',
+                      'matplotlib'
                       ],
 
     classifiers=[
