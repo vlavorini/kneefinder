@@ -24,9 +24,9 @@ import numpy as np
 from kneefinder import KneeFinder
 
 data_x = np.linspace(1, 10, 15)
-data_y = 10*(np.exp(-a) + 0.15 * np.random.rand(len(a)))
+data_y = 10*(np.exp(-data_x) + 0.15 * np.random.rand(len(data_x)))
 
-kf = KneeFinder(data_x=a, data_y=b)
+kf = KneeFinder(data_x, data_y)
 
 knee_x, knee_y = kf.find_knee()
 
