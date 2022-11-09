@@ -37,6 +37,9 @@ kf.plot()
 
 ![clustering_data](https://raw.githubusercontent.com/vlavorini/kneefinder/main/imgs/knee.png?raw=true "Knee searching method")
 
+
+You can find more examples in the directory notebooks.
+
 ## Methodology
 KneeFinder define as knee the point which has the maximum distance 
 from a line passing between the first and last point.
