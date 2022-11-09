@@ -21,7 +21,7 @@ the corresponding performance benefit” (Satopää, Albrecht, Irwin, and Raghav
 ```python
 
 import numpy as np
-from KneeFinder import KneeFinder
+from kneefinder import KneeFinder
 
 data_x = np.linspace(1, 10, 15)
 data_y = 10*(np.exp(-a) + 0.15 * np.random.rand(len(a)))
