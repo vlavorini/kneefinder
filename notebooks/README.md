@@ -1,6 +1,6 @@
 # Notebooks with examples
 
-Each notebook contains an usecase for the KneeFinder tool
+Each notebook contains use cases for the KneeFinder tool
 
 | Notebook name    |    Dataset     |      Algorithm |
 |------------------|:--------------:|---------------:|
