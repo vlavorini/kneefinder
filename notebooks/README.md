@@ -7,3 +7,6 @@ Each notebook contains an usecase for the KneeFinder tool
 | DBSCAN.ipynb   |     Random     |    DBSCAN |
 | kmeans.ipynb   |      Iris      |   k-means |
 | kmeans_2.ipynb | Mall customers |   k-means |
+
+Note that the python packages required by each notebook 
+could not be included in the requirements of the KneeFinder package.
